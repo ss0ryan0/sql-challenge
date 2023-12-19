@@ -1,26 +1,9 @@
 ﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
-
-CREATE TABLE "Departments" (
-    "dept_no" VARCHAR   NOT NULL,
-    "dept_name" CHAR   NOT NULL,
-    CONSTRAINT "pk_Departments" PRIMARY KEY (
-        "dept_no"
-     )
-);
-
-CREATE TABLE "Titles" (
-    "title_id" VARCHAR   NOT NULL,
-    "title" CHAR   NOT NULL,
-    CONSTRAINT "pk_Titles" PRIMARY KEY (
-        "title_id"
-     )
-);
-
 CREATE TABLE "Employees" (
-    "emp_no" INTEGER   NOT NULL,
-    "emp_title_id" CHAR(5)   NOT NULL,
+    "emp_no" INT(5)   NOT NULL,
+    "emp_title_id" VARCHAR(5)   NOT NULL,
     "birth_date" DATE   NOT NULL,
     "first_name" CHAR(40)   NOT NULL,
     "last_name" CHAR(40)   NOT NULL,
@@ -31,25 +14,41 @@ CREATE TABLE "Employees" (
      )
 );
 
+CREATE TABLE "Departments" (
+    "dept_no" VARCHAR(4)   NOT NULL,
+    "dept_name" CHAR(40)   NOT NULL,
+    CONSTRAINT "pk_Departments" PRIMARY KEY (
+        "dept_no"
+     )
+);
+
+CREATE TABLE "Titles" (
+    "title_id" VARCHAR(5)   NOT NULL,
+    "title" CHAR(40)   NOT NULL,
+    CONSTRAINT "pk_Titles" PRIMARY KEY (
+        "title_id"
+     )
+);
+
 CREATE TABLE "salaries" (
-    "emp_no" INTEGER   NOT NULL,
-    "salary" INTEGER(7)   NOT NULL,
+    "emp_no" INT(5)   NOT NULL,
+    "salary" INT(6)   NOT NULL,
     CONSTRAINT "pk_salaries" PRIMARY KEY (
         "emp_no"
      )
 );
 
 CREATE TABLE "Dept_Emp" (
-    "emp_no" INT   NOT NULL,
-    "dept_name" VARCHAR   NOT NULL,
+    "emp_no" INT(5)   NOT NULL,
+    "dept_name" CHAR(40)   NOT NULL,
     CONSTRAINT "pk_Dept_Emp" PRIMARY KEY (
         "emp_no"
      )
 );
 
 CREATE TABLE "Dept_Manager" (
-    "dept_no" VARCHAR   NOT NULL,
-    "emp_no" INT   NOT NULL,
+    "dept_no" VARCHAR(4)   NOT NULL,
+    "emp_no" INT(5)   NOT NULL,
     CONSTRAINT "pk_Dept_Manager" PRIMARY KEY (
         "emp_no"
      )
